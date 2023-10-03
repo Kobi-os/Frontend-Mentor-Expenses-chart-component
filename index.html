@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="style.css">
+  <title>Frontend Mentor | Expenses chart component</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+</head>
+<body>
+
+<main class="mainPage">
+  <section class="myBalance">
+    <div class="balanceContainer">
+    <p class="balance">My balance</p>
+    <h1 class="balanceValue">$921.48</h1>
+    </div>
+    <img src="/images/logo.svg" alt="circleLogo">
+  </section>
+
+  <section class="spendingsChart">
+    <h2 class="spendingsTitle">Spending - Last 7 days</h2>
+    <div class="chartArea">
+      <canvas style="width:100%;max-width:700px;height: 280px;" id="myChart">
+
+      </canvas>
+    </div>
+
+    <div class="totalMonth">
+      <div>
+        <h2 class="totalThisMonthTitle">Total this month</h2>
+        <h2 class="totalThisMonthValue">$478.33</h2>
+      </div>
+
+      <div class="procentage">
+        <p class="totalThisMonthPercentage">+2.4%</p>
+        <p class="totalThisMonthChange">from last month</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+
+
+
+
+
+<script>
+var xValues = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"];
+var yValues = [17.45, 34.91, 52.36, 31.07, 23.39, 43.28, 25.48];
+var barColors = ["hsl(10, 79%, 65%)", "hsl(10, 79%, 65%)", "hsl(10, 79%, 65%)", "hsl(10, 79%, 65%)", "hsl(10, 79%, 65%)", "hsl(10, 79%, 65%)", "hsl(10, 79%, 65%)" ];
+
+new Chart("myChart", {
+  type: "bar",
+  data: {
+    labels: xValues,
+    datasets: [{
+      backgroundColor: barColors,
+      data: yValues
+    }]
+  },
+  options: {
+    legend: {display: false},
+  
+  scales: {
+    xAxes: [{
+      gridLines:{
+        display: false
+      }
+    }],
+    yAxes: [{
+      ticks: {
+          display: false // Usuwa liczby na osi Y
+        },
+      gridLines:{
+        display: false,
+        zeroLineColor: "transparent"
+      }
+    }]
+  }
+}
+});
+</script>
+  
+ 
+
+</body>
+</html>
